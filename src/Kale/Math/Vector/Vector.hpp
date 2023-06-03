@@ -101,7 +101,7 @@ namespace Kale {
 		bool operator<(Vector2<T> o) const { return x < o.x && y < o.y; }
 		bool operator<=(Vector2<T> o) const { return x <= o.x && y <= o.y; }
 		bool operator>=(Vector2<T> o) const { return x >= o.x && y >= o.y; }
-		template <typename A = T> typename std::enable_if<not std::is_floating_point<A>::value, bool>::type operator==(Vector2<T> o) const {
+		template <typename A = T> typename std::enable_if<!std::is_floating_point<A>::value, bool>::type operator==(Vector2<T> o) const {
 			return x == o.x && y == o.y;
 		}
 		template <typename A = T> typename std::enable_if<std::is_floating_point<A>::value, bool>::type operator==(Vector2<T> o) const {
@@ -245,7 +245,7 @@ namespace Kale {
 		bool operator<(Vector3<T> o) const { return x < o.x && y < o.y && z < o.z; }
 		bool operator>=(Vector3<T> o) const { return x >= o.x && y >= o.y && z >= o.z; }
 		bool operator<=(Vector3<T> o) const { return x <= o.x && y <= o.y && z <= o.z; }
-		template <typename A = T> typename std::enable_if<not std::is_floating_point<A>::value, bool>::type operator==(Vector3<T> o) const {
+		template <typename A = T> typename std::enable_if<!std::is_floating_point<A>::value, bool>::type operator==(Vector3<T> o) const {
 			return x == o.x && y == o.y && z == o.z;
 		}
 		template <typename A = T> typename std::enable_if<std::is_floating_point<A>::value, bool>::type operator==(Vector3<T> o) const {
@@ -424,7 +424,7 @@ namespace Kale {
 		bool operator<(Vector4<T> o) const { return x < o.x && y < o.y && z < o.z && w < o.w; }
 		bool operator>=(Vector4<T> o) const { return x >= o.x && y >= o.y && z >= o.z && w >= o.w; }
 		bool operator<=(Vector4<T> o) const { return x <= o.x && y <= o.y && z <= o.z && w <= o.w; }
-		template <typename A = T> typename std::enable_if<not std::is_floating_point<A>::value, bool>::type operator==(Vector4<T> o) const {
+		template <typename A = T> typename std::enable_if<!std::is_floating_point<A>::value, bool>::type operator==(Vector4<T> o) const {
 			return x == o.x && y == o.y && z == o.z && w == o.w;
 		}
 		template <typename A = T> typename std::enable_if<std::is_floating_point<A>::value, bool>::type operator==(Vector4<T> o) const {
