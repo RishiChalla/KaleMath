@@ -18,6 +18,7 @@
 
 #include <Kale/Math/Utils/Utils.hpp>
 
+#include <stdint.h>
 #include <cmath>
 #include <algorithm>
 #include <ostream>

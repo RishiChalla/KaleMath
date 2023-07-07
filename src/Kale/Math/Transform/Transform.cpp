@@ -74,8 +74,8 @@ Transform::Transform(std::array<float, 9>&& arr) : Matrix3f(arr) {
  * @param degrees Whether or not the rotation given is in degrees (false, default, means radians)
  */
 Transform::Transform(const Vector2f& translation, float rotation, const Vector2f& scaleFactor, bool degrees) : Matrix3f({
-	cos(degrees ? degToRad(rotation) : rotation) * scaleFactor.x, -sin(degrees ? degToRad(rotation) : rotation) * scaleFactor.y, translation.x,
-	sin(degrees ? degToRad(rotation) : rotation) * scaleFactor.x, cos(degrees ? degToRad(rotation) : rotation) * scaleFactor.y, translation.y,
+	cosf(degrees ? degToRad(rotation) : rotation) * scaleFactor.x, -sinf(degrees ? degToRad(rotation) : rotation) * scaleFactor.y, translation.x,
+	sinf(degrees ? degToRad(rotation) : rotation) * scaleFactor.x, cosf(degrees ? degToRad(rotation) : rotation) * scaleFactor.y, translation.y,
 	0.0f, 0.0f, 1.0f
 }) {
 	// Empty Body
@@ -91,8 +91,8 @@ Transform::Transform(const Vector2f& translation, float rotation, const Vector2f
  * @param degrees Whether or not the rotation given is in degrees (false, default, means radians)
  */
 Transform::Transform(float translateX, float translateY, float rotation, float scaleX, float scaleY, bool degrees) : Matrix3f({
-	cos(degrees ? degToRad(rotation) : rotation) * scaleX, -sin(degrees ? degToRad(rotation) : rotation) * scaleY, translateX,
-	sin(degrees ? degToRad(rotation) : rotation) * scaleX, cos(degrees ? degToRad(rotation) : rotation) * scaleY, translateY,
+	cosf(degrees ? degToRad(rotation) : rotation) * scaleX, -sinf(degrees ? degToRad(rotation) : rotation) * scaleY, translateX,
+	sinf(degrees ? degToRad(rotation) : rotation) * scaleX, cosf(degrees ? degToRad(rotation) : rotation) * scaleY, translateY,
 	0.0f, 0.0f, 1.0f
 }) {
 	// Empty Body
@@ -286,8 +286,8 @@ void Transform::setScale(float scale) {
  */
 Vector2f Transform::getScale() const {
 	return {
-		sqrt(data[3] * data[3] + data[4] * data[4]),
-		sqrt(data[0] * data[0] + data[1] * data[1])
+		sqrtf(data[3] * data[3] + data[4] * data[4]),
+		sqrtf(data[0] * data[0] + data[1] * data[1])
 	};
 }
 
